@@ -5,10 +5,19 @@ for(var i=0 ; i< numberOfButtons ; i++){
 
     document.querySelectorAll(".drum")[i].addEventListener("click", function() {
     
-        //this.style.color = "white"
-        var buttonInnerHTML = this.innerHTML;
-        var audio;
-        switch(buttonInnerHTML){
+        makeSound(this.innerHTML);
+        
+        });
+        
+}
+
+document.addEventListener("keydown", function(event){
+    makeSound(event.key);
+});
+
+function makeSound(key){
+    var audio;
+        switch(key){
             case "w":
                 audio = new Audio("sounds/tom-1.mp3");
                 audio.play();
@@ -40,6 +49,4 @@ for(var i=0 ; i< numberOfButtons ; i++){
             default:
                 console.log(buttonInnerHTML);
             }
-        })
-        
-    };
+}
